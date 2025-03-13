@@ -1,0 +1,44 @@
+### Test Person Lifecycle Endpoints
+
+@host = http://localhost:5143
+@personId = 123e4567-e89b-12d3-a456-426614174000
+
+### Create a new person
+POST {{host}}/person/born
+Content-Type: application/json
+
+{
+  "PersonId": "{{personId}}",
+  "DateOfBirth": "2000-01-01T00:00:00Z",
+  "Name": "John Doe"
+}
+
+### Change person's name
+POST {{host}}/person/name-changed
+Content-Type: application/json
+
+{
+  "PersonId": "{{personId}}",
+  "NewName": "John Smith"
+}
+
+### Change person's address
+POST {{host}}/person/address-changed
+Content-Type: application/json
+
+{
+  "PersonId": "{{personId}}",
+  "NewAddress": "123 Main St"
+}
+
+### Mark person as deceased
+POST {{host}}/person/died
+Content-Type: application/json
+
+{
+  "PersonId": "{{personId}}",
+  "DateOfDeath": "2070-01-01T00:00:00Z"
+}
+
+### Get current state of person
+GET {{host}}/person/{{personId}}

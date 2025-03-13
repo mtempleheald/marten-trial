@@ -1,0 +1,17 @@
+services:
+
+  db:
+    container_name: postgresdb
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: P@Ssword1
+#      POSTGRES_DB: eventStore - Aspire builders don't set POSTGRES_DB, so stick with default
+    ports:
+      - "5432:5432"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:
